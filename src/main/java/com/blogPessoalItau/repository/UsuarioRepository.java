@@ -1,5 +1,6 @@
 package com.blogPessoalItau.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,6 +12,9 @@ import com.blogPessoalItau.model.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
 	
-	public Optional<Usuario> findByUsuario(@Param("usuario") String usuario);
+	public Optional<Usuario> findByUsuario(String usuario);
+	
+	public List <Usuario> findAllByNomeContainingIgnoreCase(@Param("nome") String nome);
+
 }
 
